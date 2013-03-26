@@ -1,0 +1,5 @@
+<?
+
+class upload extends kcol {
+
+}
