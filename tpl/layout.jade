@@ -2,12 +2,33 @@
 
 html
   head
-    title zachman framework sample template
+    title Air New Zealnd #nzontheway
     link(rel='stylesheet',href='css/main.css',type='text/css',media='all')
     script(type='text/javascript',src='jst/lib/jquery-1.9.1.min.js')
     script(type='text/javascript',src='jst/main.js')
   body
-    .header header content
     .container
       block content
-    .footer footer content
+
+    #fb-root
+    script
+      window.fbAsyncInit = function() {
+
+        FB.init({
+          appId      : '#{_C.FB_APPID}',
+          cookie     : true,
+          xfbml      : true,
+          oauth      : true
+        });
+
+        FB.Canvas.setAutoGrow();
+
+      };
+
+      (function(d){
+         var js, id = 'facebook-jssdk'; if (d.getElementById(id)) {return;}
+         js = d.createElement('script'); js.id = id; js.async = true;
+         js.src = "//connect.facebook.net/en_US/all.js";
+         d.getElementsByTagName('head')[0].appendChild(js);
+       }(document));
+

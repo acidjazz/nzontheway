@@ -1,15 +1,39 @@
+@font-face {
+  font-family: 'AirNewzealand';
+  src: url("/css/fnt/airnewzaldblackitalic.eot");
+  src: url("/css/fnt/airnewzaldblackitalic.eot?#iefix") format('embedded-opentype'), url("/css/fnt/airnewzaldblackitalic.woff") format('woff'), url("/css/fnt/airnewzaldblackitalic.ttf") format('truetype'), url("/css/fnt/airnewzaldblackitalic.svg#airnewzaldblackitalic") format('svg');
+  font-weight: normal;
+  font-style: normal;
+}
+@font-face {
+  font-family: 'ApexNewBook';
+  src: url("/css/fnt/apexnewbook.eot");
+  src: url("/css/fnt/apexnewbook.eot?#iefix") format('embedded-opentype'), url("/css/fnt/apexnewbook.woff") format('woff'), url("/css/fnt/apexnewbook.ttf") format('truetype'), url("/css/fnt/apexnewbook.svg#apexnewbook") format('svg');
+  font-weight: normal;
+  font-style: normal;
+}
+@font-face {
+  font-family: 'ApexNewLight';
+  src: url("/css/fnt/apexnewlight.eot");
+  src: url("/css/fnt/apexnewlight.eot?#iefix") format('embedded-opentype'), url("/css/fnt/apexnewlight.woff") format('woff'), url("/css/fnt/apexnewlight.ttf") format('truetype'), url("/css/fnt/apexnewlight.svg#apexnewlight") format('svg');
+  font-weight: normal;
+  font-style: normal;
+}
+@font-face {
+  font-family: 'ApexNewMedium';
+  src: url("/css/fnt/apexnewmedium.eot");
+  src: url("/css/fnt/apexnewmedium.eot?#iefix") format('embedded-opentype'), url("/css/fnt/apexnewmedium.woff") format('woff'), url("/css/fnt/apexnewmedium.ttf") format('truetype'), url("/css/fnt/apexnewmedium.svg#apexnewmedium") format('svg');
+  font-weight: normal;
+  font-style: normal;
+}
 body,
 html {
   padding: 0;
   margin: 0;
-  font-family: 'lucida grande', tahoma, verdana, arial, sans-serif;
+  font-family: 'AirNewzealand', tahoma, verdana;
   font-size: 13px;
-}
-.header,
-.footer {
-  text-align: center;
-  padding: 40px;
-  background-color: #c0c0c0;
+  color: #fff;
+  width: 810px;
 }
 .clear {
   clear: both;
@@ -20,8 +44,94 @@ html {
   height: 0;
 }
 .container {
-  padding: 40px;
-  text-align: center;
-  font-size: 16px;
-  min-height: 600px;
+  background-color: #000;
+  padding: 0 20px;
+}
+.header {
+  background-image: url("/img/background.png");
+  background-repeat: no-repeat;
+  background-position: left;
+  background-color: #fff;
+  -webkit-box-shadow: inset 2px 2px 2px rgba(0,0,0,0.8);
+  box-shadow: inset 2px 2px 2px rgba(0,0,0,0.8);
+}
+.header .background {
+  background: -webkit-gradient(linear, left top, right top, color-stop(0.2, rgba(0,0,0,0)), color-stop(0.8, #000));
+  background: -webkit-linear-gradient(left, rgba(0,0,0,0) 20%, #000 80%);
+  background: -moz-linear-gradient(left, rgba(0,0,0,0) 20%, #000 80%);
+  background: -o-linear-gradient(left, rgba(0,0,0,0) 20%, #000 80%);
+  background: -ms-linear-gradient(left, rgba(0,0,0,0) 20%, #000 80%);
+  background: linear-gradient(left, rgba(0,0,0,0) 20%, #000 80%);
+  height: 293px;
+}
+.header .background div {
+  float: right;
+}
+.header .logo {
+  background: url("/img/anz_logo.png");
+  width: 246px;
+  height: 40px;
+  margin: 30px 0 0 0;
+}
+.header .title {
+  font-family: 'AirNewzealand';
+  font-size: 60px;
+  text-shadow: 2px 2px 2px rgba(0,0,0,0.8);
+  margin: 10px 0 0 0;
+}
+.header .copy {
+  text-align: right;
+  text-shadow: 1px 1px 1px rgba(0,0,0,0.8);
+  font-family: 'AirNewzealand';
+  font-size: 18px;
+  margin: 10px 0 0 0;
+}
+.header .copy .apex {
+  font-family: 'ApexNewBook';
+  font-size: 18px;
+  padding: 0 5px 0 5px;
+}
+.header .cta {
+  font-family: 'ApexNewMedium';
+  font-size: 18px;
+  text-decoration: underline;
+  margin: 20px 0 0 0;
+}
+.body {
+  border-top: 20px solid #000;
+  background-color: #fff;
+}
+.body .outer {
+  display: inline-block;
+  position: relative;
+  left: 50%;
+}
+.body .inner {
+  position: relative;
+  left: -50%;
+}
+.body .inner .thumbnail {
+  float: left;
+  margin: 5px;
+}
+.footer {
+  padding: 20px 0;
+}
+.footer .copy1 {
+  font-size: 36px;
+}
+.footer .copy1 .apex {
+  font-family: 'ApexNewLight';
+  font-size: 36px;
+  padding: 0 5px 0 5px;
+}
+.footer .copy1 .instagram_logo {
+  display: inline-block;
+  background: url("/img/icon_instagram.png");
+  width: 39px;
+  height: 40px;
+}
+.footer .copy2 {
+  font-family: 'ApexNewBook';
+  font-size: 20px;
 }
