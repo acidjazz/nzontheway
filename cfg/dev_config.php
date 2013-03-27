@@ -1,12 +1,14 @@
 <?
 
 define('G_PATH', '/var/www/nzo/');
-define('LIB_PATHS', '/var/www/nzo/klib/,'.G_PATH.'mdl/,'.G_PATH.'ctl/,'.G_PATH.'lib/');
-define('G_URL', 'https://nzontheway.com/');
+define('LIB_PATHS', G_PATH.'klib/,'.G_PATH.'mdl/,'.G_PATH.'ctl/,'.G_PATH.'lib/');
+define('G_URL', 'http://nzontheway.com/');
 
 /* kdebug */
 define('KDEBUG', false);
 define('KDEBUG_HANDLER', true);
+define('KDEBUG_EGPCS', true);
+define('KDEBUG_SQL', true);
 
 /* mongo config */
 define('MONGO_HOST','mongodb://localhost:27017/');
@@ -14,10 +16,17 @@ define('MONGO_DB','zach');
 //define('MONGO_REPLICA_SET', 'replica3');
 define('MONGO_DEBUG', true);
 
+/* mysql config */
+define('DB_HOST', 'localhost');
+define('DB_USER', 'nzo');
+define('DB_PASSWORD', 'nzo');
+define('DB_DATABASE', 'nzo');
+
 /* ignore past this line */
 
 /* set our include path(s) */
 set_include_path(get_include_path().PATH_SEPARATOR.G_PATH);
+
 
 /* autoload libs/classes in their specific folders */
 spl_autoload_register(function($class) { 

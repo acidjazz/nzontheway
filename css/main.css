@@ -34,6 +34,7 @@ html {
   font-size: 100%;
   font: inherit;
   color: #fff;
+  max-width: 960px;
 }
 .clear {
   clear: both;
@@ -56,12 +57,12 @@ html {
   box-shadow: inset 2px 2px 2px rgba(0,0,0,0.8);
 }
 .header .background {
-  background: -webkit-gradient(linear, left top, right top, color-stop(0, rgba(0,0,0,0)), color-stop(1, #000));
-  background: -webkit-linear-gradient(left, rgba(0,0,0,0) 0%, #000 100%);
-  background: -moz-linear-gradient(left, rgba(0,0,0,0) 0%, #000 100%);
-  background: -o-linear-gradient(left, rgba(0,0,0,0) 0%, #000 100%);
-  background: -ms-linear-gradient(left, rgba(0,0,0,0) 0%, #000 100%);
-  background: linear-gradient(left, rgba(0,0,0,0) 0%, #000 100%);
+  background: -webkit-gradient(linear, left top, right top, color-stop(0.2, rgba(0,0,0,0)), color-stop(0.6, #000));
+  background: -webkit-linear-gradient(left, rgba(0,0,0,0) 20%, #000 60%);
+  background: -moz-linear-gradient(left, rgba(0,0,0,0) 20%, #000 60%);
+  background: -o-linear-gradient(left, rgba(0,0,0,0) 20%, #000 60%);
+  background: -ms-linear-gradient(left, rgba(0,0,0,0) 20%, #000 60%);
+  background: linear-gradient(left, rgba(0,0,0,0) 20%, #000 60%);
   height: 293px;
 }
 .header .background div {
@@ -100,10 +101,17 @@ html {
 .body {
   border-top: 20px solid #000;
   background-color: #fff;
+  height: 600px;
+  overflow-y: auto;
 }
 .body .thumbnail {
+  width: 150px;
+  height: 150px;
   display: inline-block;
-  margin: 5px;
+  padding: 5px;
+  -webkit-box-shadow: 1px 1px 2px 2px rgba(0,0,0,0.8);
+  box-shadow: 1px 1px 2px 2px rgba(0,0,0,0.8);
+  margin: 10px;
 }
 .footer {
   padding: 20px 0;
