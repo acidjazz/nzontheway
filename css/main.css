@@ -135,6 +135,9 @@ html {
 .body .thumbnail .info {
   font-family: ApexNewLight;
   position: absolute;
+  opacity: 0.7;
+  filter: alpha(opacity=70);
+  -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=70)";
   bottom: -30px;
   left: 0px;
   width: 160px;
@@ -269,7 +272,6 @@ html {
   background: url("/img/close.png");
 }
 .modalpop .image {
-  background-color: #efefef;
   background: url("/img/loader.gif") no-repeat center;
   float: left;
 }
