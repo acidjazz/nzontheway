@@ -39,6 +39,7 @@ class instacache {
             $cache->link = $data['link'];
             $cache->tags = count($data['tags']);
             $cache->likes = $data['likes']['count'];
+            $cache->comments = $data['comments']['count'];
             $cache->thumbnail = $data['images']['thumbnail']['url'];
             $cache->image = $data['images']['standard_resolution']['url'];
             $cache->caption = $data['caption']['text'];
@@ -46,6 +47,7 @@ class instacache {
             $cache->profile = $data['user']['profile_picture'];
             $cache->user_id = $data['user']['id'];
             $cache->save();
+            echo 'saved '.$data['id']."\r\n";
           }
 
           $gap = time()-strtotime($cache->created);

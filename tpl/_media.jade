@@ -1,3 +1,10 @@
-
 each media, i in data
-  .thumbnail: img('src'=media.thumbnail)
+  .thumbnail('data-id'=media.id)
+    .info 
+      | #{media.likes}
+      .likes
+      | #{media.tags}
+      .tags
+      | #{media.comments}
+      .comments
+    img('src'=media.thumbnail)

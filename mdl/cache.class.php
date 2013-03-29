@@ -18,4 +18,16 @@ class cache extends ktbl {
     return parent::__set($name, $value);
   }
 
+  public function __get($name) {
+
+    switch ($name) {
+      case 'caption' :
+        return utf8_encode(parent::__get($name));
+        break;
+    }
+
+    return parent::__get($name);
+
+  }
+
 }

@@ -4,6 +4,7 @@ class kdebug {
 	
 	private static $errors = null;
 	private static $codewindow = 10;
+  private static $headered = false;
 
 	public function __construct() {
 
@@ -21,6 +22,7 @@ class kdebug {
     }
 
     if (defined('KDEBUG_SQL') && KDEBUG_SQL != false) {
+		  echo $this->headers();
 		  echo $this->database(kdb::$debug);
     }
 
@@ -36,6 +38,12 @@ class kdebug {
 	}
 
 	private function headers() {
+
+    if (self::$headered == true) {
+      return false;
+    }
+
+    self::$headered = true;
 
 		$sql_border =  '#7f9948';
 		$sql_background = '#a6c85e';
@@ -310,7 +318,7 @@ class kdebug {
 
 var jQuery;
 
-if (window.jQuery === undefined || window.jQuery.fn.jquery !== '1.4.2') {
+if (window.jQuery === undefined || window.jQuery.fn.jquery !== '1.9.1') {
     var script_tag = document.createElement('script');
     script_tag.setAttribute("type","text/javascript");
     script_tag.setAttribute("src",
