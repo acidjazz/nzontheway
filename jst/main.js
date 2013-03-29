@@ -61,6 +61,12 @@ var _ = {
 
     $.get('/media', {last: _.last}, function(response) {
       _.last = response.last;
+
+      if (response.html == '') {
+        console.log('EOL');
+        $('.body .bloader').html('End of Line&nbsp;&nbsp;&nbsp;').css('background', 'none');
+        return true;
+      }
       $('.body .thumbnails').append(response.html);
       _.moreing = false;
       _.thandlers();
