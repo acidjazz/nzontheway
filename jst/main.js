@@ -2,10 +2,27 @@ var _ = {
 
   last: false,
   moreing: false,
+  offset: 600,
+  fb_offset: 720,
 
   i: function() {
     _.load();
     _.handlers();
+
+    if (_.sr == '') {
+      //$('.body').css('height', ($(window).height()-_.offset) + 'px');
+    } else {
+      FB.Canvas.getPageInfo(
+        function(info) {
+          console.log(info.clientHeight);
+          var height = info.clientHeight-_.fb_offset;
+          if (height > 500) {
+            $('.body').css('height', height + 'px');
+          }
+        }
+      );
+    }
+
   },
 
   handlers: function() {

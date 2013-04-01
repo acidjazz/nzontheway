@@ -17,13 +17,15 @@ html
       window.fbAsyncInit = function() {
 
         FB.init({
-          appId      : '#{_C.FB_APPID}',
+          appId      : '#{_c.FB_APPID}',
           cookie     : true,
           xfbml      : true,
           oauth      : true
         });
 
         FB.Canvas.setAutoGrow();
+        _.sr = '#{_p.signed_request}';
+        _.i();
 
       };
 
@@ -32,5 +34,4 @@ html
          js = d.createElement('script'); js.id = id; js.async = true;
          js.src = "//connect.facebook.net/en_US/all.js";
          d.getElementsByTagName('head')[0].appendChild(js);
-         _.i();
        }(document));

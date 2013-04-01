@@ -8,9 +8,11 @@ class jade {
 
     $path = G_PATH.self::$templatedir;
 
-    $constants = get_defined_constants(true);
-    $array['_C'] = $constants['user'];
-    $json = json_encode($array);
+    $array['_c'] = get_defined_constants(true)['user'];
+
+    foreach (['g' => $_GET, 'p' => $_POST, 'r' => $_REQUEST] as $k=>$v) {
+      $array['_'.$k] = $v;
+    }
 
     if (!is_file($path.$template)) {
       $template = $template.'.jade';
@@ -18,13 +20,11 @@ class jade {
 
     if (!is_file($path.$template)) {
       trigger_error('Template not found: "'.$template.'"');
-      return false;
     }
 
-    $temp = tmpfile();
     $file = tempnam(sys_get_temp_dir(), 'json_');
     $handle = fopen($file, 'w');
-    fwrite($handle, $json);
+    fwrite($handle, json_encode($array));
     fclose($handle);
 
     $cmd = "jade -p ".$path.$template." -P --obj '$file' < ".$path.$template;
@@ -39,6 +39,7 @@ class jade {
       if (defined('KDEBUG_HANDLER') && KDEBUG_HANDLER == true) {
 
         if (preg_match('/(.*)Error: (.*)\:(.*)/i', $results[4], $matches)) {
+
           foreach ($results as $key=>$value) {
             if ($value == '') {
               $errormessage = $results[$key+1];
