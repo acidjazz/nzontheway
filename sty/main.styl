@@ -81,8 +81,15 @@ body,html
     height 158px
     margin 10px
     text-align center
+    &.flagged
+      background-color #ffcccc
+    &.newer
+      background-color #feffcc
     &:hover .info
       bottom 0px
+      transition all 0.2s ease-in 
+    &.admin:hover .tools
+      top 0px
       transition all 0.2s ease-in 
     img
       margin 4px 0 0 0
@@ -112,7 +119,30 @@ body,html
         background url('/img/stat_sprite.png') -13px
       .tags
         background url('/img/stat_sprite.png') -26px
-
+    .tools
+      position absolute
+      font-family ApexNewBook
+      top -30px
+      width 160px
+      transition all 0.2s ease-in
+      color #000
+      font-size 12px
+      line-height 20px
+      text-align center
+      .flag, .stick, .flagged, .unstick
+        padding 5px 0
+        display inline-block
+        cursor pointer
+        width 78px
+        display inline-block
+      .flag
+        background-color #ffdddd
+      .flagged
+        background-color #ffaaaa
+      .stick
+        background-color #ddffdd
+      .unstick
+        background-color #ccffcc
 
   .bloader
     background url('/img/loader.gif') no-repeat center
@@ -172,6 +202,7 @@ body,html
   margin-left -350px
   background url('/img/loader.gif') no-repeat center
   background-color #fff
+  text-align left
   div 
     color #000
     display none

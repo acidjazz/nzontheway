@@ -1,10 +1,34 @@
+
+mixin tools(media)
+  .tools
+    if media.flagged != 1
+      .flag('data-id'=media.id) flag
+    else
+      .flagged('data-id'=media.id) unflag
+    
+    //if media.sticky != 1
+      .stick('data-id'=media.id) stick
+    //else
+      .stick('data-id'=media.id) unstick
+
+mixin info(media)
+  .info 
+    | #{media.likes}
+    .likes
+    | #{media.tags}
+    .tags
+    | #{media.comments}
+    .comments
+
 each media, i in data
-  .thumbnail('data-id'=media.id)
-    .info 
-      | #{media.likes}
-      .likes
-      | #{media.tags}
-      .tags
-      | #{media.comments}
-      .comments
-    img('src'=media.thumbnail)
+  if (admin == true)
+    .thumbnail('data-id'=media.id).admin(class=media.status)
+      mixin tools(media)
+      mixin info(media)
+      img('src'=media.thumbnail)
+  else
+    .thumbnail('data-id'=media.id)
+      mixin info(media)
+      img('src'=media.thumbnail)
+
+

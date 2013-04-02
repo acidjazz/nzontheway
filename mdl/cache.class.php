@@ -6,6 +6,8 @@ class cache extends ktbl {
     parent::__construct(array('id' => $id));
   }
 
+  public $__gets = array('status');
+
   public function __set($name, $value) {
 
     switch ($name) {
@@ -23,6 +25,12 @@ class cache extends ktbl {
     switch ($name) {
       case 'caption' :
         return utf8_encode(parent::__get($name));
+        break;
+      case 'status' :
+        if (parent::__get('flagged') == 1) {
+          return 'flagged';
+        }
+        return '';
         break;
     }
 

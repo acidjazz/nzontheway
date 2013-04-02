@@ -27,11 +27,16 @@ var _ = {
 
   handlers: function() {
     $('.body').scroll(_.scrolled);
+
   },
 
   thandlers: function() {
 
     $('.body .thumbnails .thumbnail').unbind('click', _.modal.i).click(_.modal.i);
+
+    if (_.admin == true) {
+      $('.tools .flag, .tools .flagged').unbind('click', _.flag).click(_.flag);
+    }
 
     if ($('.fade').hasClass('fadeon')) {
       $('.fade').css('height', _.totalHeight($('.body')) + 'px');
@@ -58,9 +63,33 @@ var _ = {
 
   },
 
+  flag: function(e) {
+
+    var t = $(this);
+
+    t.html('...');
+
+    $.get('/media/flag/' + t.data('id'), {signed_request: _.sr}, function(response) {
+
+      if (t.hasClass('flagged')) {
+        t.removeClass('flagged').addClass('flag');
+        t.html('flag');
+        t.parent().parent().removeClass('flagged');
+      } else {
+        t.removeClass('flag').addClass('flagged');
+        t.parent().parent().addClass('flagged');
+        t.html('unflag');
+      }
+
+    }, 'json');
+
+    e.stopPropagation();
+
+  },
+
   load: function() {
 
-    $.get('/media', function(response) {
+    $.get('/media', {signed_request: _.sr}, function(response) {
       $('.body .thumbnails').html(response.html);
       _.last = response.last;
       _.thandlers();
@@ -76,7 +105,7 @@ var _ = {
 
     _.moreing = true;
 
-    $.get('/media', {last: _.last}, function(response) {
+    $.get('/media', {last: _.last, signed_request: _.sr}, function(response) {
       _.last = response.last;
 
       if (response.html == '') {

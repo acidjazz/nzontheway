@@ -120,8 +120,22 @@ html {
   margin: 10px;
   text-align: center;
 }
+.body .thumbnail.flagged {
+  background-color: #fcc;
+}
+.body .thumbnail.newer {
+  background-color: #feffcc;
+}
 .body .thumbnail:hover .info {
   bottom: 0px;
+  -webkit-transition: all 0.2s ease-in;
+  -moz-transition: all 0.2s ease-in;
+  -o-transition: all 0.2s ease-in;
+  -ms-transition: all 0.2s ease-in;
+  transition: all 0.2s ease-in;
+}
+.body .thumbnail.admin:hover .tools {
+  top: 0px;
   -webkit-transition: all 0.2s ease-in;
   -moz-transition: all 0.2s ease-in;
   -o-transition: all 0.2s ease-in;
@@ -169,6 +183,43 @@ html {
 }
 .body .thumbnail .info .tags {
   background: url("/img/stat_sprite.png") -26px;
+}
+.body .thumbnail .tools {
+  position: absolute;
+  font-family: ApexNewBook;
+  top: -30px;
+  width: 160px;
+  -webkit-transition: all 0.2s ease-in;
+  -moz-transition: all 0.2s ease-in;
+  -o-transition: all 0.2s ease-in;
+  -ms-transition: all 0.2s ease-in;
+  transition: all 0.2s ease-in;
+  color: #000;
+  font-size: 12px;
+  line-height: 20px;
+  text-align: center;
+}
+.body .thumbnail .tools .flag,
+.body .thumbnail .tools .stick,
+.body .thumbnail .tools .flagged,
+.body .thumbnail .tools .unstick {
+  padding: 5px 0;
+  display: inline-block;
+  cursor: pointer;
+  width: 78px;
+  display: inline-block;
+}
+.body .thumbnail .tools .flag {
+  background-color: #fdd;
+}
+.body .thumbnail .tools .flagged {
+  background-color: #faa;
+}
+.body .thumbnail .tools .stick {
+  background-color: #dfd;
+}
+.body .thumbnail .tools .unstick {
+  background-color: #cfc;
 }
 .body .bloader {
   background: url("/img/loader.gif") no-repeat center;
@@ -241,6 +292,7 @@ html {
   margin-left: -350px;
   background: url("/img/loader.gif") no-repeat center;
   background-color: #fff;
+  text-align: left;
 }
 .modal div {
   color: #000;
