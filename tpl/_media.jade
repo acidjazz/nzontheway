@@ -6,29 +6,28 @@ mixin tools(media)
     else
       .flagged('data-id'=media.id) unflag
     
-    //if media.sticky != 1
+    if media.stuck != 1
       .stick('data-id'=media.id) stick
-    //else
-      .stick('data-id'=media.id) unstick
+    else
+      .stuck('data-id'=media.id) unstick
 
 mixin info(media)
   .info 
     | #{media.likes}
-    .likes
+    .sprite.likes('title'= media.likes + ' likes')
     | #{media.tags}
-    .tags
+    .sprite.tags('title'= media.tags + ' tags')
     | #{media.comments}
-    .comments
+    .sprite.comments('title'= media.comments + ' comments')
 
 each media, i in data
   if (admin == true)
     .thumbnail('data-id'=media.id).admin(class=media.status)
       mixin tools(media)
       mixin info(media)
-      img('src'=media.thumbnail)
+      img('src'=media.thumbnail,'alt'='')
   else
     .thumbnail('data-id'=media.id)
       mixin info(media)
-      img('src'=media.thumbnail)
-
+      img('src'=media.thumbnail,'alt'='')
 

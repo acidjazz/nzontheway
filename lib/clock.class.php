@@ -4,9 +4,8 @@ class clock {
 
   public static function duration($date) {
 
-    $now = new DateTime('now');
-
-    $diff = $now->diff(new DateTime(date("Y-m-d H:i:s", $date)));
+    $now = new DateTime('now', new DateTimeZone('UTC'));
+    $diff = $now->diff(new DateTime($date, new DateTimeZone('UTC')));
 
     if ($diff->days > 32) { 
       $months = round($diff->days/30);

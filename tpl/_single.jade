@@ -1,9 +1,18 @@
 .close
 .info
-  .username #{username}
+  .right
+    .username #{username}
+    .duration #{duration} ago
   .profile
     img('src'=profile)
   .clear
   .caption #{caption}
+  .totals
+    | #{likes}
+    .sprite.likes('title'= likes + ' likes')
+    | #{tags}
+    .sprite.tags('title'= tags + ' tags')
+    | #{comments}
+    .sprite.comments('title'= comments + ' comments')
 .image
   img('src'=image)
