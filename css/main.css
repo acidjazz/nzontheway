@@ -227,7 +227,7 @@ html {
   text-align: right;
 }
 .footer {
-  padding: 20px 0;
+  padding: 20px 0 0 0;
 }
 .footer .copy1 {
   font-size: 240%;
@@ -253,6 +253,7 @@ html {
   text-align: left;
 }
 .footer .fpics .fpic {
+  cursor: pointer;
   display: inline-block;
   background-color: #fff;
   width: 127px;

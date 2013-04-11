@@ -56,7 +56,7 @@ var _ = {
 
   thandlers: function() {
 
-    $('.body .thumbnails .thumbnail').unbind('click', _.modal.i).click(_.modal.i);
+    $('.body .thumbnails .thumbnail, .fpic').unbind('click', _.modal.i).click(_.modal.i);
 
     if (_.admin == true) {
       $('.tools .flag, .tools .flagged').unbind('click', _.flag).click(_.flag);
@@ -169,6 +169,7 @@ var _ = {
 
     $.get('/media/stucks', function(response) {
       $('.footer .fpics').html(response.html);
+      _.thandlers();
     }, 'json');
 
   },

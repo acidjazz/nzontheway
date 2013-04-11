@@ -1,3 +1,3 @@
 each media, i in data
-  .fpic
+  .fpic('data-id'=media.id).admin(class=media.status)
     img('src'=media.thumbnail)
