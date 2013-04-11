@@ -109,5 +109,16 @@ class media_ctl {
 
   }
 
+  public function stucks() {
+
+    $data = array();
+    foreach (cache::gets('WHERE stuck = 1 ORDER BY created DESC LIMIT 4') as $key=>$value) {
+      $data[] = $value->data();
+    }
+
+    echo json_encode([ 'html' => jade::c('_fpic', ['data' => $data], true) ]);
+
+  }
+
 }
 

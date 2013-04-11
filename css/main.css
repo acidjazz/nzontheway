@@ -239,16 +239,17 @@ html {
 }
 .footer .copy1 .instagram_logo {
   display: inline-block;
-  background: url("/img/icon_instagram.png");
-  width: 39px;
-  height: 40px;
+  background: url("/img/icon_instagram.png") repeat scroll 0 0/100% auto transparent;
+  width: 30px;
+  height: 30px;
+  margin: 0 0 -3px;
 }
 .footer .copy2 {
   font-family: 'ApexNewBook';
   font-size: 100%;
 }
 .footer .fpics {
-  padding: 20px 5px 0 5px;
+  padding: 20px 0 0 33px;
   text-align: left;
 }
 .footer .fpics .fpic {
@@ -262,6 +263,10 @@ html {
 .footer .fpics .fpic img {
   display: inline-block;
   width: 127px;
+}
+.footer .fpics .loading {
+  height: 127px;
+  background: url("/img/bloader.gif") no-repeat center;
 }
 .footer .tandc {
   font-family: 'ApexNewBook';

@@ -167,6 +167,10 @@ var _ = {
       }
     }, 'json');
 
+    $.get('/media/stucks', function(response) {
+      $('.footer .fpics').html(response.html);
+    }, 'json');
+
   },
 
   more: function() {
