@@ -35,6 +35,8 @@ html {
   color: #fff;
   background-color: #000;
   margin: auto;
+  max-width: 1040px;
+  overflow: hidden;
 }
 .clear {
   zoom: 1;
@@ -51,7 +53,7 @@ html {
   padding: 0 20px;
 }
 .header {
-  background-image: url("/img/background.png");
+  background-image: url("/img/background.jpg");
   background-repeat: no-repeat;
   background-position: left;
   background-color: #fff;
@@ -92,6 +94,7 @@ html {
   font-family: 'AirNewzealand';
   font-size: 120%;
   margin: 10px 0 0 0;
+  clear: both;
 }
 .header .copy .apex {
   font-family: 'ApexNewBook';
@@ -103,11 +106,15 @@ html {
   font-size: 100%;
   text-decoration: underline;
   margin: 20px 0 0 0;
+  clear: both;
+}
+.header .cta a {
+  color: #fff;
 }
 .body {
   border-top: 20px solid #000;
   background-color: #fff;
-  height: 600px;
+  height: 400px;
   overflow-y: auto;
   text-align: center;
 }
@@ -125,13 +132,13 @@ html {
   text-align: center;
 }
 .body .thumbnail.newer {
-  background-color: #feffcc;
+  background-color: #f0f371;
 }
 .body .thumbnail.flagged {
-  background-color: #fcc;
+  background-color: #fda2a2;
 }
 .body .thumbnail.stuck {
-  background-color: #cfc;
+  background-color: #8dfb8d;
 }
 .body .thumbnail:hover .info {
   bottom: 0px;
@@ -240,6 +247,30 @@ html {
   font-family: 'ApexNewBook';
   font-size: 100%;
 }
+.footer .fpics {
+  padding: 20px 5px 0 5px;
+  text-align: left;
+}
+.footer .fpics .fpic {
+  display: inline-block;
+  background-color: #fff;
+  width: 127px;
+  height: 127px;
+  padding: 5px;
+  margin: 0 45px 10px 0;
+}
+.footer .fpics .fpic img {
+  display: inline-block;
+  width: 127px;
+}
+.footer .tandc {
+  font-family: 'ApexNewBook';
+  text-align: left;
+  margin: 10px 0;
+}
+.footer .tandc a {
+  color: #fff;
+}
 .fade {
   display: hidden;
   position: absolute;
@@ -290,6 +321,107 @@ html {
   color: #000;
   display: none;
 }
+.modal .close {
+  cursor: pointer;
+  background: url("/img/close.png") no-repeat scroll -11px 0/200% auto transparent;
+  -webkit-background-size: 200%;
+  -moz-background-size: 200%;
+  background-size: 200%;
+  position: absolute;
+  top: 0px;
+  right: 0px;
+  width: 10px;
+  height: 11px;
+  margin: 5px;
+}
+.modal .close:hover {
+  background: url("/img/close.png");
+}
+.modal .image {
+  background: url("/img/loader.gif") no-repeat center;
+  float: left;
+}
+.modal .image img {
+  max-width: 400px;
+  max-height: 400px;
+}
+.modal .info {
+  width: 260px;
+  padding: 20px;
+  float: right;
+}
+.modal .info .profile {
+  float: left;
+}
+.modal .info .profile img {
+  -webkit-border-radius: 10px;
+  border-radius: 10px;
+  width: 100px;
+}
+.modal .info .right {
+  float: right;
+  text-align: right;
+}
+.modal .info .username {
+  font-weight: bold;
+}
+.modal .info .duration {
+  color: #666;
+}
+.modal .info .caption {
+  word-wrap: break-word;
+}
+.modal .info .share {
+  cursor: pointer;
+  position: absolute;
+  bottom: 50px;
+  right: 10px;
+  background-color: #000;
+  padding: 0 10px;
+  line-height: 30px;
+  width: 65px;
+  height: 30px;
+  color: #fff;
+  font-size: 16px;
+}
+.modal .info .share .share_f {
+  float: right;
+  background: url("/img/share_f.png");
+  -webkit-background-size: 100%;
+  -moz-background-size: 100%;
+  background-size: 100%;
+  height: 24px;
+  width: 12px;
+  margin: 6px 0 0 10px;
+}
+.modal .info .totals {
+  position: absolute;
+  width: 260px;
+  bottom: -20px;
+  right: 0px;
+  color: #fff;
+  background-color: #000;
+  padding: 5px 20px;
+  line-height: 20px;
+  text-align: center;
+  opacity: 0;
+  filter: alpha(opacity=0);
+  -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=0)";
+}
+.modal .info .totals,
+.modal .info .totalson {
+  -webkit-transition: all 0.2s ease-in 0.2s;
+  -moz-transition: all 0.2s ease-in 0.2s;
+  -o-transition: all 0.2s ease-in 0.2s;
+  -ms-transition: all 0.2s ease-in 0.2s;
+  transition: all 0.2s ease-in 0.2s;
+}
+.modal .info .totalson {
+  bottom: 0px;
+  opacity: 0.9;
+  filter: alpha(opacity=90);
+  -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=90)";
+}
 .modalon {
   display: block;
   opacity: 1;
@@ -305,84 +437,6 @@ html {
   background: none;
   min-height: 200px;
   background-color: #fff;
-}
-.modalpop .close {
-  cursor: pointer;
-  background: url("/img/close.png") -11px 0;
-  -webkit-background-size: 200%;
-  -moz-background-size: 200%;
-  background-size: 200%;
-  position: absolute;
-  top: 0px;
-  right: 0px;
-  width: 10px;
-  height: 11px;
-  margin: 5px;
-}
-.modalpop .close:hover {
-  background: url("/img/close.png");
-}
-.modalpop .image {
-  background: url("/img/loader.gif") no-repeat center;
-  float: left;
-}
-.modalpop .image img {
-  max-width: 400px;
-  max-height: 400px;
-}
-.modalpop .info {
-  width: 260px;
-  padding: 20px;
-  float: right;
-}
-.modalpop .info .profile {
-  float: left;
-}
-.modalpop .info .profile img {
-  -webkit-border-radius: 10px;
-  border-radius: 10px;
-  width: 100px;
-}
-.modalpop .info .right {
-  float: right;
-  text-align: right;
-}
-.modalpop .info .username {
-  font-weight: bold;
-}
-.modalpop .info .duration {
-  color: #666;
-}
-.modalpop .info .caption {
-  word-wrap: break-word;
-}
-.modalpop .info .totals {
-  position: absolute;
-  width: 260px;
-  bottom: -20px;
-  right: 0px;
-  color: #fff;
-  background-color: #000;
-  padding: 5px 20px;
-  line-height: 20px;
-  text-align: center;
-  opacity: 0;
-  filter: alpha(opacity=0);
-  -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=0)";
-}
-.modalpop .info .totals,
-.modalpop .info .totalson {
-  -webkit-transition: all 0.2s ease-in 0.2s;
-  -moz-transition: all 0.2s ease-in 0.2s;
-  -o-transition: all 0.2s ease-in 0.2s;
-  -ms-transition: all 0.2s ease-in 0.2s;
-  transition: all 0.2s ease-in 0.2s;
-}
-.modalpop .info .totalson {
-  bottom: 0px;
-  opacity: 0.9;
-  filter: alpha(opacity=90);
-  -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=90)";
 }
 .capable {
   font-family: verdana;

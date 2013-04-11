@@ -10,6 +10,12 @@ class index_ctl {
     $fb = new fb();
     $admin = false;
 
+    $id = false;
+    if (isset($fb->session['app_data']) && 
+      strpos($fb->session['app_data'], 'id:') !== false) {
+      $id = substr($fb->session['app_data'], 3);
+    }
+
     if (
       isset($fb->session['page']) && 
       isset($fb->session['page']['admin']) && 
@@ -28,7 +34,7 @@ class index_ctl {
       $this->capable = true;
     }
 
-    jade::c('index', ['admin' => $this->admin, 'capable' => $this->capable]); 
+    jade::c('index', ['admin' => $this->admin, 'capable' => $this->capable, 'id' => $id]); 
 
   }
 

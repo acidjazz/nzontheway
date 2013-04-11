@@ -2,10 +2,11 @@ var _ = {
 
   last: false,
   moreing: false,
-  offset: 450,
+  offset: 650,
   fb_offset: 720,
-  min_height: 400,
+  min_height: 370,
   mobile: false,
+  id: false,
 
   i: function() {
 
@@ -35,6 +36,10 @@ var _ = {
 
     if (_.mobile == true) {
       _.mhandlers();
+    }
+
+    if (_.id != false && _.id != 'false') {
+      _.modal.i(_.id);
     }
 
   },
@@ -213,14 +218,19 @@ var _ = {
 
   modal: {
 
-    i: function() {
+    i: function(id) {
+
+      if (typeof id != 'string') {
+        var id = $(this).data('id');
+      }
 
       _.fade(true);
 
-      $.get('/media/single/' + $(this).data('id'), function(response) {
+      $.get('/media/single/' + id, function(response) {
 
         $('.modal').html(response.html).addClass('modalpop');
         $('.fade, .close').click(_.modal.d);
+        $('.share').unbind('click', _.share).click(_.share);
 
         setTimeout(function() { $('.modal .totals').addClass('totalson'); }, 100);
 
@@ -233,6 +243,21 @@ var _ = {
       $('.fade, .close').unbind('click', _.modal.d);
       _.fade(false);
     }
+
+  },
+
+  share: function() {
+
+    FB.ui(
+      {
+        method: 'feed',
+        name: '#nzontheway',
+        link: _.url + '&app_data=id:' + $(this).data('id'),
+        picture: $(this).data('image')
+      },
+      function (response) {
+
+      });
 
   }
 

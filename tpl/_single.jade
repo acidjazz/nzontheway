@@ -7,6 +7,8 @@
     img('src'=profile)
   .clear
   .caption #{caption}
+  .share(data-id=id,data-image=image) share
+    .share_f
   .totals
     | #{likes}
     .sprite.likes('title'= likes + ' likes')
