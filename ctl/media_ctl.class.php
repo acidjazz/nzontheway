@@ -45,6 +45,11 @@ class media_ctl {
       $data[] = $cache->data();
     }
 
+    if (count($data) < 1) {
+      echo json_encode(['html' => '', 'last' => '']);
+      return true;
+    }
+
     echo json_encode([
       'html' => jade::c('_media', ['data' => $data, 'admin' => $this->admin], true),
       'last' => $data[count($data)-1]['created']

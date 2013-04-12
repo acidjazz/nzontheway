@@ -26,7 +26,7 @@ class clock {
     }
 
     if ($diff->days == 0 && $diff->h == 0) {
-      return $diff->i.' minute'.($diff->i > 1 ? 's' : '').' '.$diff->s.' second'.($diff->i > 1 ? 's' : '');
+      return $diff->i.' min'.($diff->i > 1 ? 's' : '').' '.$diff->s.'s';
     }
 
     return 'clock::duration bug';

@@ -124,6 +124,9 @@ html {
 .footer .copy1 {
   display: none;
 }
+.footer .fpics {
+  display: none;
+}
 .fade {
   display: hidden;
   position: absolute;

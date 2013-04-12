@@ -167,10 +167,12 @@ var _ = {
       }
     }, 'json');
 
-    $.get('/media/stucks', function(response) {
-      $('.footer .fpics').html(response.html);
-      _.thandlers();
-    }, 'json');
+    if ($('.fpics').is(':visible')) {
+      $.get('/media/stucks', function(response) {
+        $('.footer .fpics').html(response.html);
+        _.thandlers();
+      }, 'json');
+    }
 
   },
 
