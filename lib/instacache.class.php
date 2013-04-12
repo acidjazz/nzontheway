@@ -27,7 +27,11 @@ class instacache {
           $media = $insta->media($filter, array('max_tag_id' => $max_tag_id));
         }
 
-        $max_tag_id = $media['pagination']['next_max_tag_id'];
+        if (!isset($media['pagination']['next_max_tag_id'])) {
+          $max_tag_id = false;
+        } else {
+          $max_tag_id = $media['pagination']['next_max_tag_id'];
+        }
 
         foreach ($media['data'] as $data) {
 
@@ -48,6 +52,14 @@ class instacache {
             $cache->user_id = $data['user']['id'];
             $cache->save();
             echo 'saved '.$data['id']."\r\n";
+          } else {
+
+            $cache->tags = count($data['tags']);
+            $cache->likes = $data['likes']['count'];
+            $cache->comments = $data['comments']['count'];
+            $cache->save();
+            echo 'updated '.$data['id']."\r\n";
+
           }
 
           $gap = time()-strtotime($cache->created);
@@ -56,6 +68,10 @@ class instacache {
             return true;
           }
 
+        }
+
+        if ($max_tag_id == false) {
+          return true;
         }
 
       }
