@@ -64,7 +64,7 @@ var _ = {
     }
 
     if ($('.fade').hasClass('fadeon')) {
-      $('.fade').css('height', $(document).height() + 'px');
+      $('.fade').css('height', ($(document).height()-250) + 'px');
     }
 
   },
