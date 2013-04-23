@@ -70,9 +70,7 @@ var _ = {
   },
 
   mhandlers: function() {
-
     $(window).resize(_.fixedfix);
-
   },
 
   fixedfix: function() {
@@ -82,10 +80,10 @@ var _ = {
   totalHeight: function(el) {
   
     return  el[0].scrollHeight
-      + parseInt(el.css('padding-top'), 10) 
-      + parseInt(el.css('padding-bottom'), 10)
-      + parseInt(el.css('border-top-width'), 10)
-      + parseInt(el.css('border-bottom-width'), 10);
+      + 1*(el.css('padding-top'), 10) 
+      + 1*(el.css('padding-bottom'), 10)
+      + 1*(el.css('border-top-width'), 10)
+      + 1*(el.css('border-bottom-width'), 10);
   },
 
   scrolled: function(event) {
