@@ -91,7 +91,7 @@ var _ = {
     var scrollPosition = $(this).scrollTop() + $(this).outerHeight();
     var divTotalHeight = _.totalHeight($(this));
 
-    if (scrollPosition >= divTotalHeight) {
+    if (divTotalHeight-scrollPosition<=20) {
       _.more();
     }
 
@@ -202,7 +202,7 @@ var _ = {
     if (open) {
       $('.fade').addClass('fadeon');
       $('.modal').addClass('modalon');
-      $('.fade').css('height', $(document).height() + 'px');
+      $('.fade').css('height', ($(document).height()-250) + 'px');
 
       if (_.mobile == true) {
         $('body').css('overflow', 'hidden');
@@ -256,8 +256,9 @@ var _ = {
     FB.ui(
       {
         method: 'feed',
-        name: '#nzontheway',
-        link: _.url + '&app_data=id:' + $(this).data('id'),
+        name: 'Air New Zealand &#8210; #nzontheway',
+        description: 'Your pic could win you 2 free tickets to Australia via New Zealand! Click the link to learn more.',
+        link: _.g_url + '?id=' + $(this).data('id'),
         picture: $(this).data('image')
       },
       function (response) {

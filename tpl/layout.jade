@@ -42,8 +42,17 @@ html
         _.sr = '#{_p.signed_request}';
         _.admin = #{admin};
         _.url = '#{_c.FB_URL}';
+        _.g_url = '#{_c.G_URL}';
         _.id = '#{id}';
         _.i();
+
+        if (_.sr == '' && _.mobile == false) {
+          if ('#{id}' != '') {
+            location.href = '#{_c.FB_URL}&app_data=id:#{id}' ;
+          } else {
+            location.href = '#{_c.FB_URL}';
+          }
+        }
 
       };
 

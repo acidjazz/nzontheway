@@ -282,7 +282,7 @@ html {
   display: hidden;
   position: absolute;
   background-color: rgba(0,0,0,0.9);
-  top: 0px;
+  top: 250px;
   left: 0px;
   height: 0;
   width: 100%;
@@ -307,7 +307,6 @@ html {
   opacity: 1;
   -ms-filter: none;
   filter: none;
-  height: 100%;
 }
 .modal {
   font-family: 'lucida grande', tahoma, verdana, arial, sans-serif;
@@ -359,11 +358,15 @@ html {
 }
 .modal .info .profile {
   float: left;
+  width: 100px;
+  height: 100px;
+  background-color: #efefef;
+  -webkit-border-radius: 10px;
+  border-radius: 10px;
 }
 .modal .info .profile img {
   -webkit-border-radius: 10px;
   border-radius: 10px;
-  width: 100px;
 }
 .modal .info .right {
   float: right;

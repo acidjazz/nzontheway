@@ -16,6 +16,10 @@ class index_ctl {
       $id = substr($fb->session['app_data'], 3);
     }
 
+    if (isset($_REQUEST['id']) && !empty($_REQUEST['id'])) {
+      $id = $_REQUEST['id'];
+    }
+
     if (
       isset($fb->session['page']) && 
       isset($fb->session['page']['admin']) && 
