@@ -2,7 +2,7 @@
 Authtype Basic
 AuthName "password required"
 AuthUserFile /var/www/nzo/passwd
-Require user nz
+#Require user nz
 
 RewriteEngine On
 RewriteCond %{REQUEST_FILENAME} !-f
