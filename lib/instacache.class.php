@@ -15,6 +15,8 @@ class instacache {
 
     foreach ($filters as $filter) {
 
+      echo 'going after  '.$filter."\r\n";
+
       $max_tag_id = null;
 
       $i = 0;
@@ -65,13 +67,15 @@ class instacache {
           $gap = time()-strtotime($cache->created);
 
           if ($gap >= $this->oldest) {
-            return true;
+            //return true;
+            break 2;
           }
 
         }
 
         if ($max_tag_id == false) {
-          return true;
+          //return true;
+          break 2;
         }
 
       }
